@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cart Page</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body { font-family: 'Segoe UI', Arial, sans-serif; background: #f8f9fa; margin: 0; color: #222; }
+        header { background: #2d3e50; color: #fff; padding: 20px 0; text-align: center; }
+        nav a { color: #fff; text-decoration: none; margin: 0 15px; font-weight: 500; }
+        nav a:hover { text-decoration: underline; }
+        .container { max-width: 500px; margin: 40px auto; background: #fff; border-radius: 10px; box-shadow: 0 2px 8px rgba(44,62,80,0.08); padding: 30px 20px; }
+        label { font-weight: 500; }
+        select, button { padding: 8px 12px; margin: 10px 0; border-radius: 5px; border: 1px solid #ccc; font-size: 1rem; }
+        button { background: #fc5c7d; color: #fff; border: none; cursor: pointer; font-weight: 500; }
+        button:hover { background: #6a82fb; }
+        ul { list-style: none; padding: 0; }
+        li { margin-bottom: 8px; }
+        .total { font-weight: bold; margin-top: 18px; color: #fc5c7d; }
+        .order-summary { margin-top: 25px; background: #f1f3f6; border-radius: 8px; padding: 15px; }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="book.html">Book Page</a>
+        </nav>
+        <h2>Your Cart</h2>
+    </header>
+    <div class="container">
+        <form id="cartForm" autocomplete="off" onsubmit="return false;">
+            <label for="bookSelect">Select Book:</label>
+            <select id="bookSelect">
+                <option value="The Great Gatsby|750">The Great Gatsby - ₱750.00</option>
+                <option value="To Kill a Mockingbird|650">To Kill a Mockingbird - ₱650.00</option>
+                <option value="1984|550">1984 - ₱550.00</option>
+                <option value="Pride and Prejudice|600">Pride and Prejudice - ₱600.00</option>
+                <option value="Moby-Dick|700">Moby-Dick - ₱700.00</option>
+                <option value="War and Peace|850">War and Peace - ₱850.00</option>
+                <option value="The Catcher in the Rye|620">The Catcher in the Rye - ₱620.00</option>
+                <option value="The Hobbit|680">The Hobbit - ₱680.00</option>
+                <option value="Crime and Punishment|800">Crime and Punishment - ₱800.00</option>
+                <option value="Brave New World|570">Brave New World - ₱570.00</option>
+            </select>
+            <button type="button" onclick="addToCart()">Add to Cart</button>
+        </form>
+        <h3>Books in Cart:</h3>
+        <ul id="cartList"></ul>
+        <div class="total" id="totalPrice"></div>
+        <button type="button" onclick="buyBooks()" style="margin-top:15px;">Buy</button>
+        <div class="order-summary" id="orderSummary" style="display:none;"></div>
+    </div>
+    <script>
+        const cart = [];
+        function addToCart() {
+            const select = document.getElementById('bookSelect');
+            const [title, price] = select.value.split('|');
+            cart.push({ title, price: Number(price) });
+            renderCart();
+        }
+        function renderCart() {
+            const cartList = document.getElementById('cartList');
+            cartList.innerHTML = '';
+            cart.forEach((item, idx) => {
+                const li = document.createElement('li');
+                li.textContent = `${item.title} - ₱${item.price.toFixed(2)}`;
+                cartList.appendChild(li);
+            });
+            const total = cart.reduce((sum, item) => sum + item.price, 0);
+            document.getElementById('totalPrice').textContent = cart.length ? `Total: ₱${total.toFixed(2)}` : '';
+            document.getElementById('orderSummary').style.display = 'none';
+        }
+        function buyBooks() {
+            if (cart.length === 0) {
+                alert('Your cart is empty!');
+                return;
+            }
+            let summary = '<strong>Books Ordered:</strong><ul>';
+            cart.forEach(item => {
+                summary += `<li>${item.title} - ₱${item.price.toFixed(2)}</li>`;
+            });
+            const total = cart.reduce((sum, item) => sum + item.price, 0);
+            summary += `</ul><div class="total">Total: ₱${total.toFixed(2)}</div>`;
+            document.getElementById('orderSummary').innerHTML = summary;
+            document.getElementById('orderSummary').style.display = 'block';
+        }
+    </script>
+</body>
+</html>

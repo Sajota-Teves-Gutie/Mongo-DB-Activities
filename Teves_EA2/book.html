@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Book Page</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body { font-family: 'Segoe UI', Arial, sans-serif; background: #f8f9fa; margin: 0; color: #222; }
+        header { background: #2d3e50; color: #fff; padding: 20px 0; text-align: center; }
+        nav a { color: #fff; text-decoration: none; margin: 0 15px; font-weight: 500; }
+        nav a:hover { text-decoration: underline; }
+        .container { max-width: 900px; margin: 40px auto; padding: 0 20px; }
+        .section-title { font-size: 2rem; margin-bottom: 20px; color: #2d3e50; border-left: 5px solid #fc5c7d; padding-left: 10px; }
+        .book-list { display: flex; flex-wrap: wrap; gap: 30px; justify-content: center; }
+        .book-item {
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(44,62,80,0.08);
+            padding: 20px;
+            width: 220px;
+            text-align: center;
+            margin-bottom: 20px;
+            transition: transform 0.2s;
+        }
+        .book-item:hover { transform: translateY(-5px) scale(1.03); }
+        .book-item img {
+            width: 100px;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 6px;
+            margin-bottom: 12px;
+        }
+        .book-title { font-size: 1.1rem; font-weight: 600; margin-bottom: 8px; }
+        .book-author { color: #888; font-size: 0.95rem; margin-bottom: 10px; }
+        .book-price { color: #fc5c7d; font-weight: bold; }
+        @media (max-width: 800px) {
+            .book-list { flex-direction: column; align-items: center; }
+            .book-item { width: 90%; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="cart.html">Cart Page</a>
+        </nav>
+        <h2>Book List</h2>
+    </header>
+    <div class="container">
+        <div class="section-title">Available Books</div>
+        <div class="book-list">
+            <div class="book-item">
+                <img src="https://covers.openlibrary.org/b/id/10523338-L.jpg" alt="The Great Gatsby">
+                <div class="book-title">The Great Gatsby</div>
+                <div class="book-author">by F. Scott Fitzgerald</div>
+                <div class="book-price">₱750.00</div>
+            </div>
+            <div class="book-item">
+                <img src="https://covers.openlibrary.org/b/id/11153215-L.jpg" alt="To Kill a Mockingbird">
+                <div class="book-title">To Kill a Mockingbird</div>
+                <div class="book-author">by Harper Lee</div>
+                <div class="book-price">₱650.00</div>
+            </div>
+            <div class="book-item">
+                <img src="https://covers.openlibrary.org/b/id/10958306-L.jpg" alt="1984">
+                <div class="book-title">1984</div>
+                <div class="book-author">by George Orwell</div>
+                <div class="book-price">₱550.00</div>
+            </div>
+            <div class="book-item">
+                <img src="https://covers.openlibrary.org/b/id/10523339-L.jpg" alt="Pride and Prejudice">
+                <div class="book-title">Pride and Prejudice</div>
+                <div class="book-author">by Jane Austen</div>
+                <div class="book-price">₱600.00</div>
+            </div>
+            <div class="book-item">
+                <img src="https://covers.openlibrary.org/b/id/10523340-L.jpg" alt="Moby-Dick">
+                <div class="book-title">Moby-Dick</div>
+                <div class="book-author">by Herman Melville</div>
+                <div class="book-price">₱700.00</div>
+            </div>
+            <div class="book-item">
+                <img src="https://covers.openlibrary.org/b/id/10523341-L.jpg" alt="War and Peace">
+                <div class="book-title">War and Peace</div>
+                <div class="book-author">by Leo Tolstoy</div>
+                <div class="book-price">₱850.00</div>
+            </div>
+            <div class="book-item">
+                <img src="https://covers.openlibrary.org/b/id/10523342-L.jpg" alt="The Catcher in the Rye">
+                <div class="book-title">The Catcher in the Rye</div>
+                <div class="book-author">by J.D. Salinger</div>
+                <div class="book-price">₱620.00</div>
+            </div>
+            <div class="book-item">
+                <img src="https://covers.openlibrary.org/b/id/10523343-L.jpg" alt="The Hobbit">
+                <div class="book-title">The Hobbit</div>
+                <div class="book-author">by J.R.R. Tolkien</div>
+                <div class="book-price">₱680.00</div>
+            </div>
+            <div class="book-item">
+                <img src="https://covers.openlibrary.org/b/id/10523344-L.jpg" alt="Crime and Punishment">
+                <div class="book-title">Crime and Punishment</div>
+                <div class="book-author">by Fyodor Dostoevsky</div>
+                <div class="book-price">₱800.00</div>
+            </div>
+            <div class="book-item">
+                <img src="https://covers.openlibrary.org/b/id/10523345-L.jpg" alt="Brave New World">
+                <div class="book-title">Brave New World</div>
+                <div class="book-author">by Aldous Huxley</div>
+                <div class="book-price">₱570.00</div>
+            </div>
+        </div>
+    </div>
+</body>
