@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Charles' Bookstore</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <nav>
+    <button onclick="goTo('home')">Home</button>
+    <button onclick="goTo('books')">Book Page</button>
+    <button onclick="goTo('cart')">Cart Page</button>
+  </nav>
+
+  <!-- HOME PAGE -->
+  <section id="home" class="page active">
+    <header><h1>Welcome to Charles' Bookstore</h1></header>
+    <div class="banner">📚 Featured Titles & Exclusive Deals 📚</div>
+    <div class="bio">
+      <img src="C:\Users\GAMING PC\Pictures\Screenshots\Screenshot 2024-01-19 200343.png" alt="Photo" />
+      <p>
+        <strong>Web Developer:</strong> Charles<br />
+        Passionate Web Developer that puts importance on good user experience and website appeal.
+      </p>
+    </div>
+  </section>
+
+  <!-- BOOK PAGE -->
+  <section id="books" class="page">
+    <h2>Select a Book</h2>
+    <select id="bookSelect"></select>
+    <button onclick="addToCart()">Add to Cart</button>
+    <p><a href="#" onclick="goTo('home')">Back to Home</a></p>
+  </section>
+
+  <!-- CART PAGE -->
+  <section id="cart" class="page">
+    <h2>Your Cart</h2>
+    <ul id="cartItems"></ul>
+    <p id="totalPrice">Total: ₱0</p>
+    <button onclick="showSummary()">Buy</button>
+    <div id="summary"></div>
+    <p><a href="#" onclick="goTo('home')">Back to Home</a></p>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>
